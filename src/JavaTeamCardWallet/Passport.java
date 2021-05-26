@@ -15,7 +15,7 @@ public class Passport extends ID_card{
 		return Nationality;
 	}
 
-	public void setNationalityD(String Nationality) {
+	public void setNationality(String Nationality) {
 		this.Nationality = Nationality;
 	}
 	
