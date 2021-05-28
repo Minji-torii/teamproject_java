@@ -142,6 +142,7 @@ public class CheckAddGUI {
 				newCard.setUserName(userNameField.getText());
 				newCard.setBalance(balanceField.getText());
 				newCard.InputCardNum(cardNumField.getText());
+				newCard.setExpireDate(spinner.getValue().toString() + "/" + spinner_1.getValue().toString());
 				
 				try { //텍스트 파일에 데이터 추가
 					BufferedWriter Writer = new BufferedWriter(new FileWriter(outputFile, true));
@@ -150,7 +151,8 @@ public class CheckAddGUI {
 					Writer.append(newCard.getCardNumber()+",");
 					Writer.append(newCard.getBalance()+",");
 					Writer.append(newCard.getCardCompany()+",");
-					Writer.append(newCard.getMII()+"\n");
+					Writer.append(newCard.getMII()+",");
+					Writer.append(newCard.getExpireDate()+"\n");
 
 					Writer.close();
 				} catch (FileNotFoundException e1) {

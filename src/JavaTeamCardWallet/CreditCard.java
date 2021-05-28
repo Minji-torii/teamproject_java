@@ -5,7 +5,8 @@ import java.util.Calendar;
 public class CreditCard extends BankCard {
 	double limit; //사용한도
 	double[] monthlySpent = new double[12]; // 월별 지출
-	int creditScore = 250; // 기본 신용점수
+	double totalUse; //총 사용금액
+	double creditScore; // 기본 신용점수
 	
 	
 	/*getters and setters*/
@@ -19,15 +20,22 @@ public class CreditCard extends BankCard {
 		this.limit = limit;
 	}
 
+	public double getTotalUse() {
+		return totalUse;
+	}
+	
+	public void setTotalUse(double totalUse) {
+		this.totalUse = totalUse;
+	}
 
 
-	public int getCreditScore() {
+	public double getCreditScore() {
 		return creditScore;
 	}
 
 
 
-	public void setCreditScore(int creditScore) {
+	public void setCreditScore(double creditScore) {
 		this.creditScore = creditScore;
 	}
 	
@@ -39,15 +47,15 @@ public class CreditCard extends BankCard {
 		if(creditScore<=0)
 			limit = 0;
 		else if(creditScore<100)
-			limit = 1000;
+			limit = 1000000;
 		else if(creditScore<200)
-			limit = 2000;
+			limit = 2000000;
 		else if(creditScore<300)
-			limit = 3000;
+			limit = 3000000;
 		else if(creditScore<400)
-			limit = 4000;
+			limit = 4000000;
 		else
-			limit = 5000;
+			limit = 5000000;
 	}
 	
 	/*카드 사용하기*/

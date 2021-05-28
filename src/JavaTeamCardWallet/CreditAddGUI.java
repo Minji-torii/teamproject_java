@@ -2,6 +2,10 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -92,10 +96,10 @@ public class CreditAddGUI {
 		frame.getContentPane().add(cardNumField);
 		cardNumField.setColumns(10);
 		
-		JTextField textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(385, 400, 239, 21);
-		frame.getContentPane().add(textField_1);
+		JTextField userNameField = new JTextField();
+		userNameField.setColumns(10);
+		userNameField.setBounds(385, 400, 239, 21);
+		frame.getContentPane().add(userNameField);
 		
 		
 		JSpinner spinner = new JSpinner();
@@ -111,7 +115,43 @@ public class CreditAddGUI {
 		addButton.setBounds(765, 504, 91, 23);
 		frame.getContentPane().add(addButton);
 		
-		addButton.addActionListener(null);
+		String outputFile = "Credit_Card.txt";
+		
+		addButton.addActionListener(new ActionListener() { //add 버튼 눌렀을 때
+
+			public void actionPerformed(ActionEvent e) {
+				CreditCard newCard = new CreditCard();
+				newCard.setUserName(userNameField.getText());
+				newCard.InputCardNum(cardNumField.getText());
+				newCard.setCreditScore(250);//기본 신용점수
+				newCard.setTotalUse(0);//총 사용금액 초기화
+				newCard.setExpireDate(spinner.getValue().toString() + "/" + spinner_1.getValue().toString());
+				newCard.calLimit();
+				
+				try { //텍스트 파일에 데이터 추가
+					BufferedWriter Writer = new BufferedWriter(new FileWriter(outputFile, true));
+					System.out.println(newCard.getCardNumber());
+					Writer.append(newCard.getUserName()+",");
+					Writer.append(newCard.getCardNumber()+",");
+					Writer.append(newCard.getCreditScore()+",");
+					Writer.append(newCard.getLimit()+",");
+					Writer.append(newCard.getCardCompany()+",");
+					Writer.append(newCard.getMII()+",");
+					Writer.append(newCard.getExpireDate()+",");
+					Writer.append(newCard.getTotalUse()+"\n");
+					
+					Writer.close();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+
+		});
 		
 		JLabel cardImageLabel = new JLabel("");
 		cardImageLabel.setBounds(324, 103, 300, 194);

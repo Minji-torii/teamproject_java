@@ -16,7 +16,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
-public class CheckUseGUISub {
+public class CreditUseGUISub {
 
 	private JFrame frame;
 	private JTextField productNameField;
@@ -30,7 +30,7 @@ public class CheckUseGUISub {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CheckUseGUISub window = new CheckUseGUISub(null, null, null, null, null, null);
+					CreditUseGUISub window = new CreditUseGUISub(null, null, null, null, null, null, null, null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,15 +42,15 @@ public class CheckUseGUISub {
 	/**
 	 * Create the application.
 	 */
-	public CheckUseGUISub(String name, String cardNum, String balance, String cardCom, String MII, String expiredDate) {
-		initialize(name, cardNum, balance, cardCom, MII, expiredDate);
+	public CreditUseGUISub(String name, String cardNum, String creditScore, String limit, String cardCom, String MII, String expiredDate, String totalUse) {
+		initialize(name, cardNum, creditScore, limit, cardCom, MII, expiredDate, totalUse);
 	}
 
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(String name, String cardNum, String balance, String cardCom, String MII, String expiredDate) {
+	private void initialize(String name, String cardNum, String creditScore, String limit, String cardCom, String MII, String expiredDate, String totalUse) {
 		frame = new JFrame();
 		
 		JLabel lblUserName = new JLabel("User Name : " + name);
@@ -61,9 +61,9 @@ public class CheckUseGUISub {
 		CardNumLabel.setBounds(291, 257, 333, 23);
 		frame.getContentPane().add(CardNumLabel);
 		
-		JLabel lblBalance = new JLabel("Balance : " + balance);
-		lblBalance.setBounds(291, 323, 218, 37);
-		frame.getContentPane().add(lblBalance);
+		JLabel lblLimit = new JLabel("Limit : " + limit);
+		lblLimit.setBounds(291, 323, 218, 37);
+		frame.getContentPane().add(lblLimit);
 		
 		JLabel lblCardCom = new JLabel("Card Company : " + cardCom);
 		lblCardCom.setBounds(521, 287, 333, 37);
@@ -124,50 +124,78 @@ public class CheckUseGUISub {
 		amountField.setBounds(393, 522, 96, 21);
 		frame.getContentPane().add(amountField);
 		
-		String outputFile = "Check_Card.txt";
+		JLabel lblTotalUse = new JLabel("Total Use : " + totalUse);
+		lblTotalUse.setBounds(520, 358, 218, 37);
+		frame.getContentPane().add(lblTotalUse);
+		
+		String outputFile = "Credit_Card.txt";
 		
 		purchaseButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				String newBalance = Double.toString(Double.parseDouble(balance) - Double.parseDouble(priceField.getText()) * Double.parseDouble(amountField.getText()));
 
-				System.out.println(newBalance);
-				CheckCard newCard = new CheckCard();
+				CreditCard newCard = new CreditCard();
 				newCard.setUserName(name);
-				newCard.setBalance(newBalance);
 				newCard.InputCardNum(cardNum);
 				newCard.setExpireDate(expiredDate);
+				newCard.setCreditScore(Double.parseDouble(creditScore));
+				newCard.setLimit(Double.parseDouble(limit));
+				newCard.setTotalUse(Double.parseDouble(totalUse));
 				
 				try { //텍스트 파일에 데이터 추가
 					BufferedWriter Writer = new BufferedWriter(new FileWriter(outputFile, true));
 					
-					if(Double.parseDouble(priceField.getText()) * Double.parseDouble(amountField.getText()) > Double.parseDouble(balance)) {
-						JOptionPane.showMessageDialog(null, "잔액 초과", "잔액 초과",JOptionPane.ERROR_MESSAGE);
-						System.out.println("잔액 초과");
-						Writer.append(name+",");
-						Writer.append(cardNum+",");
-						Writer.append(balance+",");
-						Writer.append(cardCom+",");
-						Writer.append(MII+",");
-						Writer.append(expiredDate+"\n");
+					if(Double.parseDouble(priceField.getText()) * Double.parseDouble(amountField.getText()) + Double.parseDouble(totalUse) > Double.parseDouble(limit)) { //한도초과
+						JOptionPane.showMessageDialog(null, "한도 초과", "한도 초과",JOptionPane.ERROR_MESSAGE);
+						System.out.println("한도 초과");
+						Double newCreditScore = Double.parseDouble(creditScore) - 100; //신용점수 하락
+						newCard.setCreditScore(newCreditScore);
+						newCard.calLimit();
+						
+						Writer.append(newCard.getUserName()+",");
+						Writer.append(newCard.getCardNumber()+",");
+						Writer.append(newCard.getCreditScore()+",");
+						Writer.append(newCard.getLimit()+",");
+						Writer.append(newCard.getCardCompany()+",");
+						Writer.append(newCard.getMII()+",");
+						Writer.append(newCard.getExpireDate()+",");
+						Writer.append(newCard.getTotalUse()+"\n");
 						
 						Writer.close();
+						
+						String finalCreditScore = Double.toString(newCreditScore);
+						String finalLimit = Double.toString(newCard.getLimit());
+						
 						frame.setVisible(false);
-						new CheckUseGUISub(name, cardNum, balance, cardCom, MII, expiredDate);
+						new CreditUseGUISub(name, cardNum, finalCreditScore, finalLimit, cardCom, MII, expiredDate, totalUse);
 					}
 					
 					else {
-						System.out.println(newCard.getCardNumber());
+						//System.out.println(newCard.getCardNumber());
+						String newTotalUse = Double.toString(Double.parseDouble(totalUse) + Double.parseDouble(priceField.getText()) * Double.parseDouble(amountField.getText()));
+						System.out.println(newTotalUse);
+						
+						Double newCreditScore = Double.parseDouble(creditScore) + 10;
+						newCard.setCreditScore(newCreditScore);
+						newCard.calLimit();
+						newCard.setTotalUse(Double.parseDouble(newTotalUse));
+						
 						Writer.append(newCard.getUserName()+",");
 						Writer.append(newCard.getCardNumber()+",");
-						Writer.append(newCard.getBalance()+",");
+						Writer.append(newCard.getCreditScore()+",");
+						Writer.append(newCard.getLimit()+",");
 						Writer.append(newCard.getCardCompany()+",");
 						Writer.append(newCard.getMII()+",");
-						Writer.append(newCard.getExpireDate()+"\n");
+						Writer.append(newCard.getExpireDate()+",");
+						Writer.append(newCard.getTotalUse()+"\n");
 
 						Writer.close();
+						
+						String finalCreditScore = Double.toString(newCreditScore);
+						String finalLimit = Double.toString(newCard.getLimit());
+						
 						frame.setVisible(false);
-						new CheckUseGUISub(name, cardNum, newBalance, cardCom, MII, expiredDate);
+						new CreditUseGUISub(name, cardNum, finalCreditScore, finalLimit, cardCom, MII, expiredDate, newTotalUse);
 					}
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
@@ -183,7 +211,7 @@ public class CheckUseGUISub {
 		
 
 		frame.setBounds(100, 100, 1000, 630);
-		frame.setTitle("Use Check Card");
+		frame.setTitle("Use Credit Card");
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setPreferredSize(new Dimension(1000, 630));

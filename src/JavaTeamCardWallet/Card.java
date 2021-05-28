@@ -1,8 +1,8 @@
-package JavaTeamCardWallet;
 
 public class Card {
 	private String userName, issuedDate, expireDate; //사용자 이름, 발급일자, 만료일자
 
+	
 	/*getters and setters*/
 	public String getUserName() {
 		return userName;
@@ -27,5 +27,5 @@ public class Card {
 	public void setExpireDate(String expireDate) {
 		this.expireDate = expireDate;
 	}
-
+	
 }

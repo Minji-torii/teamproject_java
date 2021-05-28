@@ -1,4 +1,3 @@
-package JavaTeamCardWallet;
 
 public class GUIDemo {
 
@@ -6,7 +5,9 @@ public class GUIDemo {
 		// TODO Auto-generated method stub
 
 		//new CheckAddGUI();
-		new CheckUseGUI();
+		//new CheckUseGUI();
+		new CreditAddGUI();
+		//new CreditUseGUI();
 	}
 
 }
