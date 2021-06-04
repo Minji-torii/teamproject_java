@@ -6,6 +6,7 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -125,6 +126,7 @@ public class CheckUseGUISub {
 		frame.getContentPane().add(amountField);
 		
 		String outputFile = "Check_Card.txt";
+		String accountBookFile = "Account_Book.txt";
 		
 		purchaseButton.addActionListener(new ActionListener() {
 
@@ -140,6 +142,7 @@ public class CheckUseGUISub {
 				
 				try { //텍스트 파일에 데이터 추가
 					BufferedWriter Writer = new BufferedWriter(new FileWriter(outputFile, true));
+					BufferedWriter Writer2 = new BufferedWriter(new FileWriter(accountBookFile, true));
 					
 					if(Double.parseDouble(priceField.getText()) * Double.parseDouble(amountField.getText()) > Double.parseDouble(balance)) {
 						JOptionPane.showMessageDialog(null, "잔액 초과", "잔액 초과",JOptionPane.ERROR_MESSAGE);
@@ -164,11 +167,18 @@ public class CheckUseGUISub {
 						Writer.append(newCard.getCardCompany()+",");
 						Writer.append(newCard.getMII()+",");
 						Writer.append(newCard.getExpireDate()+"\n");
+						
+						Writer2.append(cardNum + ",");
+						Writer2.append(productNameField.getText() + ",");
+						Writer2.append(amountField.getText() + ",");
+						Writer2.append(Double.parseDouble(priceField.getText()) * Double.parseDouble(amountField.getText()) + ",");
+						Writer2.append(new Date().toString()+"\n");
 
 						Writer.close();
 						frame.setVisible(false);
 						new CheckUseGUISub(name, cardNum, newBalance, cardCom, MII, expiredDate);
 					}
+					Writer2.close();
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
