@@ -1,3 +1,5 @@
+package JavaTeamCardWallet;
+
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.io.*;
@@ -51,7 +53,7 @@ public class CreditUseGUI {
 		frame.getContentPane().setLayout(null);
 		
 		
-		/*표 만들기*/
+		/*�몴 留뚮뱾湲�*/
 		String[] header = new String[]{"Name", "Card number", "Credit score", "Limit", "Card company", "MII", "Expire Date", "Total Use"};
 		String[][] data = new String[][] {
 			{"","","","","","","",""},
@@ -112,7 +114,7 @@ public class CreditUseGUI {
 		frame.getContentPane().add(creditCardRadioButton);
 		creditCardRadioButton.setSelected(true);
 		
-		checkCardRadioButton.addActionListener(new ActionListener() { //check card 선택하기
+		checkCardRadioButton.addActionListener(new ActionListener() { //check card �꽑�깮�븯湲�
 			
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -154,7 +156,7 @@ public class CreditUseGUI {
 		
 		String fileName = "Credit_Card.txt";
 		
-		/*테이블 클릭했을 때*/
+		/*�뀒�씠釉� �겢由��뻽�쓣 �븣*/
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
 			@Override

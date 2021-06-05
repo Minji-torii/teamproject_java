@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -32,7 +33,7 @@ public class Login extends JFrame{
 		JLabel cardImageLabel = new JLabel("");
 		cardImageLabel.setBounds(260, 38, 480, 332);
 		ImageIcon img= new ImageIcon ("C:/work/image/card.jpg");
-		cardImageLabel.setIcon(img);
+		cardImageLabel.setIcon(new ImageIcon(Login.class.getResource("/JavaTeamCardWallet/image/\uADF8\uB9BC1.jpg")));
 		
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel("ID : ");
@@ -56,19 +57,20 @@ public class Login extends JFrame{
 		
 		panel.setBounds(1000,600,300,50);
 		
-		/*btn1.addActionListener(new ActionListener() {
+		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String id = "java";
 				String pass = "1234";
 				
 				if(id.equals(txtID.getText()) && pass.equals(txtPass.getText())){
-					JOptionPane.showMessageDialog(null, "Login Success");
+					setVisible(false);
+					new MainMenu();
 				}	else {
 					JOptionPane.showMessageDialog(null, "Login Failed");
 				}
 				
 			}
-		});*/
+		});
 		
 		//다음페이지.setVisible(false); 맨처음페이지만 보이도록
 		
