@@ -70,7 +70,6 @@ public class PassportAddGUI {
 		frmAddPassport.getContentPane().add(lblAddress);
 
 		JRadioButton IDRadioButton = new JRadioButton("ID card");
-		IDRadioButton.setSelected(true);
 		IDRadioButton.setBounds(200, 37, 113, 23);
 		frmAddPassport.getContentPane().add(IDRadioButton);
 
@@ -83,7 +82,7 @@ public class PassportAddGUI {
 		licenseRadioButton.setBounds(598, 37, 113, 23);
 		frmAddPassport.getContentPane().add(licenseRadioButton);
 
-		PassportRadioButton.addActionListener(new ActionListener() { // ID 선택하기
+		IDRadioButton.addActionListener(new ActionListener() { // ID 선택하기
 
 			public void actionPerformed(ActionEvent e) {
 				frmAddPassport.setVisible(false);
@@ -208,6 +207,18 @@ public class PassportAddGUI {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+			}
+
+		});
+		JButton goBackBtn = new JButton("Back");
+		goBackBtn.setBounds(0, 0, 85, 58);
+		frmAddPassport.getContentPane().add(goBackBtn);
+		goBackBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				frmAddPassport.setVisible(false);
+				new MainMenu();
 			}
 
 		});

@@ -52,6 +52,7 @@ public class MainMenu {
 		JPanel AccountBook = new JPanel();
 		JPanel useCard2 = new JPanel();
 
+		frame.setVisible(true);
 		mainMenu.setVisible(true);
 		useCard.setVisible(false);
 		addCard.setVisible(false);

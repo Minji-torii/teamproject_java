@@ -165,6 +165,18 @@ public class IDAddGUI {
 
 		});
 		
+		JButton goBackBtn = new JButton("Back");
+		goBackBtn.setBounds(0, 0, 85, 58);
+		frmAddIdCard.getContentPane().add(goBackBtn);
+		goBackBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				frmAddIdCard.setVisible(false);
+				new MainMenu();
+			}
+
+		});
 		
 		frmAddIdCard.getContentPane().setLayout(null);
 

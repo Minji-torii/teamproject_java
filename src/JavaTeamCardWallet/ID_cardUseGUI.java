@@ -24,6 +24,7 @@ import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.Font;
 
@@ -60,6 +61,19 @@ public class ID_cardUseGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		
+		JButton goBackBtn = new JButton("Back");
+		goBackBtn.setBounds(0, 0, 85, 58);
+		frame.getContentPane().add(goBackBtn);
+		goBackBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				frame.setVisible(false);
+				new MainMenu();
+			}
+
+		});
 		
 		String inputFile = "ID.txt";
 		String dummy1="";

@@ -86,7 +86,7 @@ public class LicenseAddGUI {
 			}
 		});
 
-		licenseRadioButton.addActionListener(new ActionListener() { // ID 선택하기
+		IDRadioButton.addActionListener(new ActionListener() { // ID 선택하기
 
 			public void actionPerformed(ActionEvent e) {
 				frmAddDriverLicense.setVisible(false);
@@ -161,6 +161,19 @@ public class LicenseAddGUI {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+			}
+
+		});
+		
+		JButton goBackBtn = new JButton("Back");
+		goBackBtn.setBounds(0, 0, 85, 58);
+		frmAddDriverLicense.getContentPane().add(goBackBtn);
+		goBackBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				frmAddDriverLicense.setVisible(false);
+				new MainMenu();
 			}
 
 		});

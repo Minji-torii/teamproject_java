@@ -53,8 +53,18 @@ public class CreditAddGUI {
 	private void initialize() {
 		frame = new JFrame();
 
-		
+		JButton goBackBtn = new JButton("Back");
+		goBackBtn.setBounds(0, 0, 85, 58);
+		frame.getContentPane().add(goBackBtn);
+		goBackBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				frame.setVisible(false);
+				new MainMenu();
+			}
 
+		});
 		
 		JLabel lblNewLabel_2 = new JLabel("카드번호를 입력 하면 MII와 카드 회사는 자동으로 등록됩니다");
 		lblNewLabel_2.setBounds(291, 508, 365, 15);

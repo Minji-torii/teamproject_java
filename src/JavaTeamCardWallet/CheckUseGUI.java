@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.io.*;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -52,6 +53,18 @@ public class CheckUseGUI {
 		frame = new JFrame();
 		frame.getContentPane().setLayout(null);
 		
+		JButton goBackBtn = new JButton("Back");
+		goBackBtn.setBounds(0, 0, 85, 58);
+		frame.getContentPane().add(goBackBtn);
+		goBackBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				frame.setVisible(false);
+				new MainMenu();
+			}
+
+		});
 		
 		/*표 만들기*/
 		String[] header = new String[]{"Name", "Card number", "Balance", "Card company", "MII", "Expire Date"};

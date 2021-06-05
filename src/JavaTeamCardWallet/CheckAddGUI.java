@@ -171,6 +171,19 @@ public class CheckAddGUI {
 		
 		
 		frame.getContentPane().setLayout(null);
+		
+		JButton goBackBtn = new JButton("Back");
+		goBackBtn.setBounds(0, 0, 85, 58);
+		frame.getContentPane().add(goBackBtn);
+		goBackBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				frame.setVisible(false);
+				new MainMenu();
+			}
+
+		});
 
 		
 		frame.setBounds(100, 100, 1000, 630);
