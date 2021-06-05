@@ -26,7 +26,6 @@ public class Login extends JFrame{
 	
 	
 	public Login() {
-	
 		
 		setTitle("Card Wallet");
 		
@@ -58,13 +57,14 @@ public class Login extends JFrame{
 		panel.setBounds(1000,600,300,50);
 		
 		btn1.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				String id = "java";
 				String pass = "1234";
 				
 				if(id.equals(txtID.getText()) && pass.equals(txtPass.getText())){
-					setVisible(false);
-					new MainMenu();
+
+					new TrafficUseGUI();
 				}	else {
 					JOptionPane.showMessageDialog(null, "Login Failed");
 				}

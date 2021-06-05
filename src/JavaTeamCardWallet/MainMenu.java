@@ -203,8 +203,9 @@ public class MainMenu {
 				useCard.setVisible(false);
 				mainMenu.setVisible(false);
 				AccountBook.setVisible(false);
-				frame.setVisible(false);
 				new TraficAddGUI();
+				frame.dispose();
+
 				//
 			}
 
@@ -264,7 +265,7 @@ public class MainMenu {
 		JButton useTrafficbtn = new JButton("Traffic Card");
 		useTrafficbtn.setBounds(636, 254, 95, 23);
 		useCard2.add(useTrafficbtn);
-		useTrafficbtn.addActionListener(new ActionListener() { //Id Use 선택
+		useTrafficbtn.addActionListener(new ActionListener() { // Use 선택
 			
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
