@@ -15,7 +15,7 @@ import javax.swing.JRadioButton;
 import java.awt.Button;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-public class CreditUseGUI {
+public class CheckUseGUI {
 
 	private JFrame frame;
 	private JTable table;
@@ -27,7 +27,7 @@ public class CreditUseGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CreditUseGUI window = new CreditUseGUI();
+					CheckUseGUI window = new CheckUseGUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class CreditUseGUI {
 	/**
 	 * Create the application.
 	 */
-	public CreditUseGUI() {
+	public CheckUseGUI() {
 		initialize();
 	}
 
@@ -52,18 +52,18 @@ public class CreditUseGUI {
 		
 		
 		/*표 만들기*/
-		String[] header = new String[]{"Name", "Card number", "Credit score", "Limit", "Card company", "MII", "Expire Date", "Total Use"};
+		String[] header = new String[]{"Name", "Card number", "Balance", "Card company", "MII", "Expire Date"};
 		String[][] data = new String[][] {
-			{"","","","","","","",""},
-			{"","","","","","","",""},
-			{"","","","","","","",""},
-			{"","","","","","","",""},
-			{"","","","","","","",""},
-			{"","","","","","","",""},
-			{"","","","","","","",""}
+			{"","","","","",""},
+			{"","","","","",""},
+			{"","","","","",""},
+			{"","","","","",""},
+			{"","","","","",""},
+			{"","","","","",""},
+			{"","","","","",""}
 		};
 		int count = 0;
-		String inputFile = "Credit_Card.txt";
+		String inputFile = "Check_Card.txt";
 		try {
 			Scanner inputStream = new Scanner(new File(inputFile));
 			String line;
@@ -72,21 +72,17 @@ public class CreditUseGUI {
 				String[] ary = line.split(",");
 				String name = ary[0];
 				String cardNum = ary[1];
-				String creditScore = ary[2];
-				String limit = ary[3];
-				String cardCom = ary[4];
-				String MII = ary[5];
-				String expireDate = ary[6];
-				String totalUse = ary[7];
+				String balance = ary[2];
+				String cardCom = ary[3];
+				String MII = ary[4];
+				String expireDate = ary[5];
 				
 				data[count][0] = name;
 				data[count][1] = cardNum;
-				data[count][2] = creditScore;
-				data[count][3] = limit;
-				data[count][4] = cardCom;
-				data[count][5] = MII;
-				data[count][6] = expireDate;
-				data[count][7] = totalUse;
+				data[count][2] = balance;
+				data[count][3] = cardCom;
+				data[count][4] = MII;
+				data[count][5] = expireDate;
 				count++;
 			}
 			inputStream.close();
@@ -105,54 +101,45 @@ public class CreditUseGUI {
 		JRadioButton checkCardRadioButton = new JRadioButton("Check card");
 		checkCardRadioButton.setBounds(309, 41, 113, 23);
 		frame.getContentPane().add(checkCardRadioButton);
-		
+		checkCardRadioButton.setSelected(true);
 		
 		JRadioButton creditCardRadioButton = new JRadioButton("Credit card");
 		creditCardRadioButton.setBounds(539, 41, 113, 23);
 		frame.getContentPane().add(creditCardRadioButton);
-		creditCardRadioButton.setSelected(true);
 		
-		checkCardRadioButton.addActionListener(new ActionListener() { //credit card 선택하기
+		creditCardRadioButton.addActionListener(new ActionListener() { //credit card 선택하기
 			
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				new CheckUseGUI();
+				new CreditUseGUI();
 			}
 		});
 		
 		JLabel lblNewLabel = new JLabel("User Name");
-		lblNewLabel.setBounds(23, 140, 85, 15);
+		lblNewLabel.setBounds(44, 140, 85, 15);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblCardNumber = new JLabel("Card Number");
-		lblCardNumber.setBounds(148, 140, 85, 15);
+		lblCardNumber.setBounds(210, 140, 85, 15);
 		frame.getContentPane().add(lblCardNumber);
 		
-		JLabel lblLimit = new JLabel("Limit");
-		lblLimit.setBounds(418, 140, 85, 15);
-		frame.getContentPane().add(lblLimit);
+		JLabel lblBalance = new JLabel("Balance");
+		lblBalance.setBounds(381, 140, 85, 15);
+		frame.getContentPane().add(lblBalance);
 		
 		JLabel lblCardCompany = new JLabel("Card Company");
-		lblCardCompany.setBounds(515, 140, 85, 15);
+		lblCardCompany.setBounds(539, 140, 85, 15);
 		frame.getContentPane().add(lblCardCompany);
 		
 		JLabel lblMii = new JLabel("MII");
-		lblMii.setBounds(675, 140, 33, 15);
+		lblMii.setBounds(732, 140, 33, 15);
 		frame.getContentPane().add(lblMii);
 		
 		JLabel lblExpireDate = new JLabel("Expire date");
-		lblExpireDate.setBounds(775, 140, 85, 15);
+		lblExpireDate.setBounds(887, 140, 85, 15);
 		frame.getContentPane().add(lblExpireDate);
 		
-		JLabel lblCreditScore = new JLabel("Credit Score");
-		lblCreditScore.setBounds(273, 140, 85, 15);
-		frame.getContentPane().add(lblCreditScore);
-		
-		JLabel lblTotalUse = new JLabel("Total Use");
-		lblTotalUse.setBounds(899, 140, 85, 15);
-		frame.getContentPane().add(lblTotalUse);
-		
-		String fileName = "Credit_Card.txt";
+		String fileName = "Check_Card.txt";
 		
 		/*테이블 클릭했을 때*/
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -190,7 +177,7 @@ public class CreditUseGUI {
 					outputStream.write(line);
 					outputStream.close();
 					frame.setVisible(false);
-					new CreditUseGUISub(data[rowNum][0],data[rowNum][1],data[rowNum][2],data[rowNum][3],data[rowNum][4],data[rowNum][5],data[rowNum][6],data[rowNum][7]);
+					new CheckUseGUISub(data[rowNum][0],data[rowNum][1],data[rowNum][2],data[rowNum][3],data[rowNum][4],data[rowNum][5]);
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -208,7 +195,7 @@ public class CreditUseGUI {
 
 		});
 		frame.setBounds(100, 100, 1000, 630);
-		frame.setTitle("Use Credit Card");
+		frame.setTitle("Use Check Card");
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setPreferredSize(new Dimension(1000, 630));
