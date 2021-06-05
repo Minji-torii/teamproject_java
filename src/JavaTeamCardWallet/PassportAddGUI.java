@@ -70,6 +70,7 @@ public class PassportAddGUI {
 		frmAddPassport.getContentPane().add(lblAddress);
 
 		JRadioButton IDRadioButton = new JRadioButton("ID card");
+		IDRadioButton.setSelected(true);
 		IDRadioButton.setBounds(200, 37, 113, 23);
 		frmAddPassport.getContentPane().add(IDRadioButton);
 

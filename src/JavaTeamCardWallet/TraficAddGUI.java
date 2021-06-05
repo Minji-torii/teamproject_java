@@ -26,6 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.ImageIcon;
 
 public class TraficAddGUI {
 
@@ -37,6 +38,7 @@ public class TraficAddGUI {
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -110,6 +112,11 @@ public class TraficAddGUI {
 		backbtn.setFont(new Font("±¼¸²", Font.PLAIN, 14));
 		backbtn.setBounds(0, 0, 103, 38);
 		addTraficCard.add(backbtn);
+		
+		JLabel cardImageLabel = new JLabel("");
+		cardImageLabel.setIcon(new ImageIcon(TraficAddGUI.class.getResource("/JavaTeamCardWallet/image/TrafficCard.PNG")));
+		cardImageLabel.setBounds(363, 105, 321, 228);
+		addTraficCard.add(cardImageLabel);
 		backbtn.addActionListener(new ActionListener() {
 
 			@Override
@@ -151,5 +158,4 @@ public class TraficAddGUI {
 		});
 
 	}
-
 }

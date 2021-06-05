@@ -1,3 +1,5 @@
+package JavaTeamCardWallet;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -34,7 +36,7 @@ import javax.swing.JButton;
 		creditPanel.setBounds(27, 58, 935, 430);
 		getContentPane().add(creditPanel);
 		
-		creditTb = new JTable(td1);
+		creditTb = new JTable("Account_Book.txt");//¼öÁ¤
 		creditPanel.add(creditTb);
 		
 		//traffic

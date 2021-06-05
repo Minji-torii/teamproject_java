@@ -23,6 +23,7 @@ public class IDAddGUI {
 	private JFrame frmAddIdCard;
 	
 	//임시 테스트 용 (passport, licence에서 이동하려면 지워야 함)
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -34,7 +35,7 @@ public class IDAddGUI {
 				}
 			}
 		});
-	}
+	}*/
 	
     /**
      * Creates new form IDAddGUI

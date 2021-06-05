@@ -163,6 +163,8 @@ public class MainMenu {
 				useCard.setVisible(false);
 				mainMenu.setVisible(false);
 				AccountBook.setVisible(false);
+				frame.setVisible(false);
+				new CheckAddGUI();
 				// new CreditAddGUI();
 				// new CheckAddGUI();
 			}
@@ -180,6 +182,8 @@ public class MainMenu {
 				useCard.setVisible(false);
 				mainMenu.setVisible(false);
 				AccountBook.setVisible(false);
+				frame.setVisible(false);
+				new IDAddGUI(); //move to ID Add
 				// new IDAddGUI();
 				//
 			}
@@ -197,8 +201,8 @@ public class MainMenu {
 				useCard.setVisible(false);
 				mainMenu.setVisible(false);
 				AccountBook.setVisible(false);
+				frame.setVisible(false);
 				new TraficAddGUI();
-
 				//
 			}
 
@@ -236,14 +240,35 @@ public class MainMenu {
 		JButton UseBankBtn = new JButton("Bank Card");
 		UseBankBtn.setBounds(146, 261, 95, 23);
 		useCard2.add(UseBankBtn);
+		UseBankBtn.addActionListener(new ActionListener() { //Bank Use 선택
+			
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				new CreditUseGUI();
+			}
+		});
 
 		JButton useIDcardBtn = new JButton("ID Card");
 		useIDcardBtn.setBounds(431, 258, 95, 23);
 		useCard2.add(useIDcardBtn);
+		useIDcardBtn.addActionListener(new ActionListener() { //Id Use 선택
+			
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				new ID_cardUseGUI();
+			}
+		});
 
 		JButton useTrafficbtn = new JButton("Traffic Card");
 		useTrafficbtn.setBounds(636, 254, 95, 23);
 		useCard2.add(useTrafficbtn);
+		useTrafficbtn.addActionListener(new ActionListener() { //Id Use 선택
+			
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				new TrafficUseGUI();
+			}
+		});
 
 		JButton useCardBacktoMain = new JButton("Back");
 		useCardBacktoMain.setBounds(0, 0, 95, 23);
