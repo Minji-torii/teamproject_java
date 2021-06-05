@@ -51,7 +51,7 @@ public class CreditUseGUI {
 		frame.getContentPane().setLayout(null);
 		
 		
-		/*Ç¥ ¸¸µé±â*/
+		/*í‘œ ë§Œë“¤ê¸°*/
 		String[] header = new String[]{"Name", "Card number", "Credit score", "Limit", "Card company", "MII", "Expire Date", "Total Use"};
 		String[][] data = new String[][] {
 			{"","","","","","","",""},
@@ -112,7 +112,7 @@ public class CreditUseGUI {
 		frame.getContentPane().add(creditCardRadioButton);
 		creditCardRadioButton.setSelected(true);
 		
-		checkCardRadioButton.addActionListener(new ActionListener() { //credit card ¼±ÅÃÇÏ±â
+		checkCardRadioButton.addActionListener(new ActionListener() { //check card ì„ íƒí•˜ê¸°
 			
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -154,7 +154,7 @@ public class CreditUseGUI {
 		
 		String fileName = "Credit_Card.txt";
 		
-		/*Å×ÀÌºí Å¬¸¯ÇßÀ» ¶§*/
+		/*í…Œì´ë¸” í´ë¦­í–ˆì„ ë•Œ*/
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
 			@Override
