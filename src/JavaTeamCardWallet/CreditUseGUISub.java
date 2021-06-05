@@ -56,6 +56,7 @@ public class CreditUseGUISub {
 	private void initialize(String name, String cardNum, String creditScore, String limit, String cardCom, String MII, String expiredDate, String totalUse) {
 		frame = new JFrame();
 		
+		
 		JLabel lblUserName = new JLabel("User Name : " + name);
 		lblUserName.setBounds(291, 287, 218, 37);
 		frame.getContentPane().add(lblUserName);
@@ -172,7 +173,7 @@ public class CreditUseGUISub {
 						String finalLimit = Double.toString(newCard.getLimit());
 						
 						frame.setVisible(false);
-						new CreditUseGUISub(name, cardNum, finalCreditScore, finalLimit, cardCom, MII, expiredDate, totalUse);
+						new CreditUseGUI();
 					}
 					
 					else {
@@ -206,7 +207,7 @@ public class CreditUseGUISub {
 						String finalLimit = Double.toString(newCard.getLimit());
 						
 						frame.setVisible(false);
-						new CreditUseGUISub(name, cardNum, finalCreditScore, finalLimit, cardCom, MII, expiredDate, newTotalUse);
+						new CreditUseGUI();
 					}
 					Writer2.close();
 				} catch (FileNotFoundException e1) {

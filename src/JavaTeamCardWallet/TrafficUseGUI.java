@@ -174,7 +174,7 @@ public class TrafficUseGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				TrafficUse.setVisible(false);
+				frame.setVisible(false);
 				new MainMenu();
 			}
 

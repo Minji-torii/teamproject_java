@@ -56,6 +56,7 @@ public class CheckUseGUISub {
 	private void initialize(String name, String cardNum, String balance, String cardCom, String MII, String expiredDate) {
 		frame = new JFrame();
 		
+		
 		JLabel lblUserName = new JLabel("User Name : " + name);
 		lblUserName.setBounds(291, 287, 218, 37);
 		frame.getContentPane().add(lblUserName);
@@ -158,7 +159,7 @@ public class CheckUseGUISub {
 						
 						Writer.close();
 						frame.setVisible(false);
-						new CheckUseGUISub(name, cardNum, balance, cardCom, MII, expiredDate);
+						new CheckUseGUI();
 					}
 					
 					else {
@@ -178,7 +179,7 @@ public class CheckUseGUISub {
 
 						Writer.close();
 						frame.setVisible(false);
-						new CheckUseGUISub(name, cardNum, newBalance, cardCom, MII, expiredDate);
+						new CheckUseGUI();
 					}
 					Writer2.close();
 				} catch (FileNotFoundException e1) {

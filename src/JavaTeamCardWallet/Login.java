@@ -63,6 +63,7 @@ public class Login extends JFrame{
 				String pass = "1234";
 				
 				if(id.equals(txtID.getText()) && pass.equals(txtPass.getText())){
+					setVisible(false);
 					new MainMenu();
 				}	else {
 					JOptionPane.showMessageDialog(null, "Login Failed");
