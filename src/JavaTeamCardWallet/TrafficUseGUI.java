@@ -165,7 +165,7 @@ public class TrafficUseGUI {
 
 		JLabel cardImageLabel = new JLabel("");
 		cardImageLabel.setIcon(new ImageIcon(TrafficUseGUI.class.getResource("/JavaTeamCardWallet/image/TrafficCard.PNG")));
-		cardImageLabel.setBounds(309, 64, 321, 228);
+		cardImageLabel.setBounds(339, 63, 321, 228);
 		TrafficUse.add(cardImageLabel);
 
 		backToUsecard.addActionListener(new ActionListener() {
