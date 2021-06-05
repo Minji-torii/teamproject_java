@@ -1,3 +1,4 @@
+package JavaTeamCardWallet;
 
 public class Card {
 	private String userName, issuedDate, expireDate; //사용자 이름, 발급일자, 만료일자
