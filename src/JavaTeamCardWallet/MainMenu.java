@@ -112,9 +112,9 @@ public class MainMenu {
 
 		});
 
-		JLabel mainLabel = new JLabel("Main");
+		JLabel mainLabel = new JLabel("Select Menu");
 		mainLabel.setFont(new Font("±¼¸²", Font.BOLD, 28));
-		mainLabel.setBounds(452, 76, 92, 77);
+		mainLabel.setBounds(413, 74, 210, 77);
 		mainMenu.add(mainLabel);
 
 		// Use card section
