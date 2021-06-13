@@ -165,7 +165,7 @@ public class IDAddGUI {
 
 		});
 		
-		JButton goBackBtn = new JButton("Back");
+		JButton goBackBtn = new AnotherRoundedButton("Back");
 		goBackBtn.setBounds(0, 0, 85, 58);
 		frmAddIdCard.getContentPane().add(goBackBtn);
 		goBackBtn.addActionListener(new ActionListener() {

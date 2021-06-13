@@ -108,7 +108,7 @@ public class TraficAddGUI {
 		addBtn.setBounds(726, 548, 103, 38);
 		addTraficCard.add(addBtn);
 		// 교통카드등록 화면 -> 등록할 카드종류 선택하는 화면으로 넘어가야함
-		JButton backbtn = new JButton("Back");
+		JButton backbtn = new AnotherRoundedButton("Back");
 		backbtn.setFont(new Font("굴림", Font.PLAIN, 14));
 		backbtn.setBounds(0, 0, 103, 38);
 		addTraficCard.add(backbtn);

@@ -210,7 +210,7 @@ public class PassportAddGUI {
 			}
 
 		});
-		JButton goBackBtn = new JButton("Back");
+		JButton goBackBtn = new AnotherRoundedButton("Back");
 		goBackBtn.setBounds(0, 0, 85, 58);
 		frmAddPassport.getContentPane().add(goBackBtn);
 		goBackBtn.addActionListener(new ActionListener() {

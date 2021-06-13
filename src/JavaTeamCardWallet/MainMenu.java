@@ -116,6 +116,23 @@ public class MainMenu {
 		mainLabel.setFont(new Font("±¼¸²", Font.BOLD, 28));
 		mainLabel.setBounds(413, 74, 210, 77);
 		mainMenu.add(mainLabel);
+		
+		JButton btnLogOut = new AnotherRoundedButton("Log Out");
+		btnLogOut.setBounds(0, 0, 91, 23);
+		mainMenu.add(btnLogOut);
+		btnLogOut.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				addCard.setVisible(false);
+				useCard.setVisible(false);
+				mainMenu.setVisible(false);
+				AccountBook.setVisible(true);
+				frame.setVisible(false);
+				new Login();
+			}
+
+		});
 
 		// Use card section
 		/*
@@ -213,7 +230,7 @@ public class MainMenu {
 		lblNewLabel_1.setBounds(413, 71, 164, 90);
 		addCard.add(lblNewLabel_1);
 
-		JButton backToMainMenu = new JButton("Back");
+		JButton backToMainMenu = new AnotherRoundedButton("Back");
 		backToMainMenu.setBounds(0, 0, 95, 23);
 		addCard.add(backToMainMenu);
 		backToMainMenu.addActionListener(new ActionListener() {
@@ -270,7 +287,7 @@ public class MainMenu {
 			}
 		});
 
-		JButton useCardBacktoMain = new JButton("Back");
+		JButton useCardBacktoMain = new AnotherRoundedButton("Back");
 		useCardBacktoMain.setBounds(0, 0, 95, 23);
 		useCard2.add(useCardBacktoMain);
 		useCardBacktoMain.addActionListener(new ActionListener() {
@@ -289,7 +306,7 @@ public class MainMenu {
 		frame.getContentPane().add(AccountBook);
 		AccountBook.setLayout(null);
 
-		JButton backToMainMenu3 = new JButton("Back");
+		JButton backToMainMenu3 = new AnotherRoundedButton("Back");
 		backToMainMenu3.setBounds(0, 0, 89, 40);
 		AccountBook.add(backToMainMenu3);
 
