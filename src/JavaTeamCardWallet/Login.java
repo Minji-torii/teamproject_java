@@ -32,7 +32,7 @@ public class Login extends JFrame{
 		JLabel cardImageLabel = new JLabel("");
 		cardImageLabel.setBounds(368, 39, 304, 332);
 		ImageIcon img= new ImageIcon ("C:/work/image/card.jpg");
-		cardImageLabel.setIcon(new ImageIcon(Login.class.getResource("/JavaTeamCardWallet/image/icon.PNG")));
+		cardImageLabel.setIcon(new ImageIcon(Login.class.getResource("/JavaTeamCardWallet/image/icon.PNG")));//change image to icon
 		
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel("ID : ");
