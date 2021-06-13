@@ -210,7 +210,7 @@ public class MainMenu {
 
 		JLabel lblNewLabel_1 = new JLabel("Add Card");
 		lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD, 28));
-		lblNewLabel_1.setBounds(384, 51, 139, 92);
+		lblNewLabel_1.setBounds(413, 71, 164, 90);
 		addCard.add(lblNewLabel_1);
 
 		JButton backToMainMenu = new JButton("Back");
@@ -233,8 +233,8 @@ public class MainMenu {
 		frame.getContentPane().add(useCard2);
 		useCard2.setLayout(null);
 		JLabel useCardLabel = new JLabel("Use Card");
-		useCardLabel.setFont(new Font("±¼¸²", Font.PLAIN, 18));
-		useCardLabel.setBounds(435, 117, 96, 27);
+		useCardLabel.setFont(new Font("±¼¸²", Font.BOLD, 28));
+		useCardLabel.setBounds(413, 67, 168, 77);
 		useCard2.add(useCardLabel);
 
 		RoundedButton UseBankBtn = new RoundedButton("Bank Card");
