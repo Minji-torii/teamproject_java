@@ -53,7 +53,7 @@ public class CreditUseGUI {
 		frame = new JFrame();
 		frame.getContentPane().setLayout(null);
 		
-		JButton goBackBtn = new JButton("Back");
+		JButton goBackBtn = new AnotherRoundedButton("Back");
 		goBackBtn.setBounds(0, 0, 85, 58);
 		frame.getContentPane().add(goBackBtn);
 		goBackBtn.addActionListener(new ActionListener() {
@@ -66,7 +66,7 @@ public class CreditUseGUI {
 
 		});
 		
-		/*�몴 留뚮뱾湲�*/
+		/*占쎈ご 筌띾슢諭얏묾占�*/
 		String[] header = new String[]{"Name", "Card number", "Credit score", "Limit", "Card company", "MII", "Expire Date", "Total Use"};
 		String[][] data = new String[][] {
 			{"","","","","","","",""},
@@ -127,7 +127,7 @@ public class CreditUseGUI {
 		frame.getContentPane().add(creditCardRadioButton);
 		creditCardRadioButton.setSelected(true);
 		
-		checkCardRadioButton.addActionListener(new ActionListener() { //check card �꽑�깮�븯湲�
+		checkCardRadioButton.addActionListener(new ActionListener() { //check card 占쎄퐨占쎄문占쎈릭疫뀐옙
 			
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -169,7 +169,7 @@ public class CreditUseGUI {
 		
 		String fileName = "Credit_Card.txt";
 		
-		/*�뀒�씠釉� �겢由��뻽�쓣 �븣*/
+		/*占쎈�믭옙�뵠�뇡占� 占쎄깻�뵳占쏙옙六쏙옙�뱽 占쎈르*/
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
 			@Override

@@ -167,7 +167,7 @@ public class TrafficUseGUI {
 		});
 
 		// 교통카드사용 화면 -> 사용할 카드 선택하는 화면으로 넘어가야함
-		JButton backToUsecard = new JButton("BACK");
+		JButton backToUsecard = new AnotherRoundedButton("BACK");
 		backToUsecard.setBounds(0, 0, 111, 52);
 		TrafficUse.add(backToUsecard);
 

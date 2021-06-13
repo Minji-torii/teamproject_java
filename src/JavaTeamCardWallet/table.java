@@ -108,7 +108,7 @@ public class table {
       scrollpane.setBounds(0, 70, 996, 428);
       frame.getContentPane().add(scrollpane);
       
-      JButton goBackBtn = new JButton("Back");
+      JButton goBackBtn = new AnotherRoundedButton("Back");
       goBackBtn.setBounds(0, 10, 168, 50);
       frame.getContentPane().add(goBackBtn);
 		goBackBtn.addActionListener(new ActionListener() {
