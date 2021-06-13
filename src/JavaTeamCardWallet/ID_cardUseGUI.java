@@ -23,10 +23,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import javax.swing.JTextPane;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.Font;
+import java.awt.Color;
 
 public class ID_cardUseGUI {
 
@@ -79,6 +83,7 @@ public class ID_cardUseGUI {
 		String dummy1="";
 		String dummy2="";
 		String dummy3="";
+		String dummy4="";
 		try { //텍스트 파일의 ID부분만 변경
 			BufferedReader Reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile)));
 			
@@ -88,9 +93,13 @@ public class ID_cardUseGUI {
 				line = Reader.readLine();
 				dummy1 +=(line + "\r\n" );
 			}
-			for (int i=2; i<5; i++) {
+			for (int i=2; i<4; i++) {
 				line = Reader.readLine();
 				dummy2 +=(line + "\r\n" );
+			}
+			for (int i=4; i<5; i++) {
+				line = Reader.readLine();
+				dummy4 +=(line + "\r\n" );
 			}
 			for (int i=5; i<7; i++) {
 				line = Reader.readLine();
@@ -107,20 +116,26 @@ public class ID_cardUseGUI {
 		
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel(dummy1);
+		JLabel lblNewLabel = new JLabel(" "+dummy1);
 		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel.setBounds(97, 52, 796, 115);
 		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 5), "ID"));
 		
-		JLabel lblNewLabel_1 = new JLabel(dummy2);
+		JLabel lblNewLabel_1 = new JLabel(" ");
+		lblNewLabel_1.setText("<html>"+"&nbsp;"+dummy2+"<br>"+"&nbsp;"+dummy4+"</html>");
 		lblNewLabel_1.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_1.setBounds(97, 221, 796, 115);
 		frame.getContentPane().add(lblNewLabel_1);
+		lblNewLabel_1.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 5), "passport"));
 		
-		JLabel lblNewLabel_2 = new JLabel(dummy3);
+		JLabel lblNewLabel_2 = new JLabel(" "+dummy3);
+		lblNewLabel_2.setForeground(Color.BLACK);
+		lblNewLabel_2.setBackground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2.setBounds(97, 382, 796, 115);
 		frame.getContentPane().add(lblNewLabel_2);
+		lblNewLabel_2.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 5), "Driver License"));
 		
 		frame.setBounds(100, 100, 1000, 630);
 		frame.setTitle("Use ID Card");

@@ -117,10 +117,6 @@ public class MainMenu {
 		mainLabel.setBounds(452, 76, 92, 77);
 		mainMenu.add(mainLabel);
 
-		JButton goBackBtn = new JButton("Back");
-		goBackBtn.setBounds(0, 0, 85, 58);
-		mainMenu.add(goBackBtn);
-
 		// Use card section
 		/*
 		 * Æó±â ¿¹Á¤ useCard.setBounds(0, 0, 1000, 600);

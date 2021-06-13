@@ -188,7 +188,7 @@ public class PassportAddGUI {
 					dummy+=("이름 :"+newCard.getUserName()+", 국적 :"+newCard.getNationality()+", 여권번호 :"+newCard.getPassportnumber()+"\r\n");//변경
 					
 					String delData2 = Reader.readLine();//수정하고자 하는 줄
-					dummy+=("성 :"+newCard.getgender()+", 생년월일 :"+newCard.getbirthday()+", 발행국 :"+newCard.getcountryofissue()+"\r\n");//변경
+					dummy+=(" 성 :"+newCard.getgender()+", 생년월일 :"+newCard.getbirthday()+", 발행국 :"+newCard.getcountryofissue()+"\r\n");//변경
 					
 					while((line = Reader.readLine())!=null) {
 						dummy +=(line+"\r\n" );

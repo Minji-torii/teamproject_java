@@ -1,7 +1,7 @@
-ID card : 
- 이름 :재민, 주민등록번호 :990728-xxxxxxx, 주소 :서울시 강서구
-Passport : 
-이름 :재민, 국적 :대한민국, 여권번호 :1111-2222-3333-4444
-성 :male , 생년월일 :Wed Jul 28 12:00:00 GMT+09:00 1999, 발행국 :대한민국
-Driver license : 
-이름 :재민, 면허증등급 :A, 면허번호 :123412312412, 주민번호 :990728-xxxxxxxx
+
+ Not Yet Registered
+ 
+Not Yet Registered
+ 
+ 
+ Not Yet Registered
