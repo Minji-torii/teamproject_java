@@ -64,6 +64,7 @@ public class TraficAddGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setVisible(true);
 		frame.setBounds(100, 100, 1011, 666);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -123,7 +124,7 @@ public class TraficAddGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				addTraficCard.setVisible(false);
+				frame.setVisible(false);
 				new MainMenu();
 			}
 
