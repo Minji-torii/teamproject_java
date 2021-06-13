@@ -67,7 +67,6 @@ public class TraficAddGUI {
 		frame.setBounds(100, 100, 1011, 666);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setVisible(true);
 
 		JPanel addTraficCard = new JPanel();
 		addTraficCard.setBounds(0, 10, 985, 619);
@@ -116,6 +115,7 @@ public class TraficAddGUI {
 		
 		JLabel cardImageLabel = new JLabel("");
 		cardImageLabel.setIcon(new ImageIcon(TraficAddGUI.class.getResource("/JavaTeamCardWallet/image/TrafficCard.PNG")));
+		
 		cardImageLabel.setBounds(363, 105, 321, 228);
 		addTraficCard.add(cardImageLabel);
 		backbtn.addActionListener(new ActionListener() {
@@ -123,7 +123,7 @@ public class TraficAddGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				frame.setVisible(false);
+				addTraficCard.setVisible(false);
 				new MainMenu();
 			}
 
@@ -138,8 +138,9 @@ public class TraficAddGUI {
 				//balance를 10000으로 임시로 성정해서 고쳤습니다.
 				trafficCard1.setbalance(inputBalance.getText());
 				trafficCard1.setCardNum(TcardNum.getText());
-				trafficCard1.setbalance(inputName.getText());
+				trafficCard1.setUserName(inputName.getText());
 				System.out.println(trafficCard1.getbalance());
+				
 				// 파일에 쓰는 코드는 문제가 없음.
 				String fileName = "Traffic_card.txt";
 				PrintWriter inputStream;
@@ -157,7 +158,6 @@ public class TraficAddGUI {
 			}
 
 		});
-		
 
 	}
 }
