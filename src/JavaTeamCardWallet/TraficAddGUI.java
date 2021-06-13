@@ -64,7 +64,6 @@ public class TraficAddGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setVisible(true);
 		frame.setBounds(100, 100, 1011, 666);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -124,7 +123,7 @@ public class TraficAddGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				frame.setVisible(false);
+				addTraficCard.setVisible(false);
 				new MainMenu();
 			}
 
@@ -144,17 +143,24 @@ public class TraficAddGUI {
 				
 				// 파일에 쓰는 코드는 문제가 없음.
 				String fileName = "Traffic_card.txt";
-				PrintWriter inputStream;
+				
 				try {
-					inputStream = new PrintWriter(new FileOutputStream(fileName));
-					inputStream.println(trafficCard1.getCardNum() + " " + trafficCard1.getUserName() + " "
-							+ trafficCard1.getbalance());
-					inputStream.println();
-					inputStream.close();
-				} catch (FileNotFoundException e2) {
+					BufferedWriter Writer = new BufferedWriter(new FileWriter(fileName,true));
+					System.out.println(trafficCard1.getUserName());
+					
+					Writer.write(trafficCard1.getCardNum()+ " ");
+					Writer.write( trafficCard1.getUserName() + " ");
+					Writer.write(trafficCard1.getbalance() + "\n");
+					
+					Writer.close();
+				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
-					e2.printStackTrace();
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+				
 
 			}
 

@@ -91,9 +91,16 @@ public class TrafficUseGUI {
 		// fee를 변수에 저장 -> Traffic_card.txt 정보르 읽어오기(가장 마지막 줄의 balance값 읽기) -> balance 를
 		// double 타입으로 변환
 		// balance -= fee -> Traffic_card.txt 에 변경된 balance 값 추가.
-		String[][] data = new String[][] { { "", "", "" }, { "", "", "" }, { "", "", "" }, { "", "", "" },
-				{ "", "", "" }, { "", "", "" } };
-
+		
+		fee = new JTextField();
+		fee.setBounds(404, 339, 121, 28);
+		TrafficUse.add(fee);
+		fee.setColumns(10);
+		
+		String[][] data = new String[][] {
+			{"","",""}
+			};
+			
 		JButton useTrafficCard = new JButton("USE");
 		useTrafficCard.setBounds(404, 416, 121, 43);
 		TrafficUse.add(useTrafficCard);
@@ -103,37 +110,52 @@ public class TrafficUseGUI {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				// class
-				int count = 0;
+				
 				String Tbalance = null;
-				double fee2 = Double.parseDouble(fee.getSelectedText()); // fee 변수에 저장 double type
+				//double fee2 = Double.parseDouble(fee.getSelectedText()); // fee 변수에 저장 double type
+				Tbalance = fee.getText();
+				Double fee2 = Double.parseDouble(Tbalance);
+				
 				String inputFile = "Traffic_card.txt";
 				String line;
 				try {
 
 					Scanner inputStream = new Scanner(new File(inputFile));
 					line = inputStream.nextLine();
-					while (inputStream.hasNextLine()) {
-						String[] ary = line.split(",");
-						data[count][0] = ary[0];
-						data[count][1] = ary[1];
-						data[count][2] = ary[2];
-						count++;
-					}
+					System.out.println(line);
+					
+						String[] ary = line.split(" ");
+						String cardNumber = ary[0];
+						String user = ary[1];
+						String bal = ary[2];
+						data[0][0] = cardNumber;
+						data[0][1] = user;
+						data[0][2] = bal;
+						System.out.println(data[0][2]);
+						
+				
 					inputStream.close();
-					double Dbalance = Double.parseDouble(data[count - 1][2]);
-					Dbalance -= fee2;
-					Tbalance = Double.toString(Dbalance);
-					outputBalance.append(Tbalance);
+					
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				double Dbalance = Double.parseDouble(data[0][2]);
+				Dbalance -= fee2;
+				
+				Tbalance = Double.toString(Dbalance);
+				System.out.println(Tbalance);
+				outputBalance.setText(Tbalance);
+
+				
+				
+				
 				// traffic_card.txt에 추가하기
 				String fileName2 = "Traffic_card.txt";
 				PrintWriter outputStream;
 				try {
 					outputStream = new PrintWriter(new FileOutputStream(fileName2));
-					outputStream.println(data[count - 1][0] + " " + data[count - 1][1] + " " + Tbalance); // 변경된 값 텍스트에
+					outputStream.println(data[0][0] + " " + data[0][1] + " " + Tbalance); // 변경된 값 텍스트에
 																											// 추가하기
 					outputStream.close();
 				} catch (FileNotFoundException e2) {
@@ -149,10 +171,7 @@ public class TrafficUseGUI {
 		backToUsecard.setBounds(0, 0, 111, 52);
 		TrafficUse.add(backToUsecard);
 
-		fee = new JTextField();
-		fee.setBounds(404, 339, 121, 28);
-		TrafficUse.add(fee);
-		fee.setColumns(10);
+		
 
 		JLabel Fee = new JLabel("Fee :  ");
 		Fee.setFont(new Font("굴림", Font.PLAIN, 14));
