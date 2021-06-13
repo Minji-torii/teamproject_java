@@ -200,8 +200,8 @@ public class MainMenu {
 				useCard.setVisible(false);
 				mainMenu.setVisible(false);
 				AccountBook.setVisible(false);
-				new TraficAddGUI();
 				frame.dispose();
+				new TraficAddGUI();
 
 				//
 			}
