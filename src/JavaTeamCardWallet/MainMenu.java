@@ -64,9 +64,9 @@ public class MainMenu {
 		frame.getContentPane().add(mainMenu);
 		mainMenu.setLayout(null);
 
-		JButton useCardBtn = new JButton("Use Card");
+		RoundedButton useCardBtn = new RoundedButton("Use Card");
 		useCardBtn.setFont(new Font("굴림", Font.BOLD, 18));
-		useCardBtn.setBounds(413, 199, 164, 80);
+		useCardBtn.setBounds(413, 199, 164, 219);
 		mainMenu.add(useCardBtn);
 		useCardBtn.addActionListener(new ActionListener() {
 			@Override
@@ -79,9 +79,9 @@ public class MainMenu {
 
 		});
 
-		JButton addCardBtn = new JButton("Add Card");
+		RoundedButton addCardBtn = new RoundedButton("Add Card");
 		addCardBtn.setFont(new Font("굴림", Font.BOLD, 18));
-		addCardBtn.setBounds(124, 198, 163, 79);
+		addCardBtn.setBounds(124, 198, 163, 220);
 		mainMenu.add(addCardBtn);
 		addCardBtn.addActionListener(new ActionListener() {
 			@Override
@@ -94,9 +94,9 @@ public class MainMenu {
 
 		});
 
-		JButton accountBtn = new JButton("Account Book");
+		RoundedButton accountBtn = new RoundedButton("Account Book");
 		accountBtn.setFont(new Font("굴림", Font.BOLD, 18));
-		accountBtn.setBounds(705, 202, 165, 79);
+		accountBtn.setBounds(705, 202, 165, 216);
 		mainMenu.add(accountBtn);
 		accountBtn.addActionListener(new ActionListener() {
 			@Override
@@ -151,8 +151,8 @@ public class MainMenu {
 		frame.getContentPane().add(addCard);
 		addCard.setLayout(null);
 		// bank card 버튼을 눌렀을때 신용카드 혹은 체크 카드를 선택하는 창으로 넘어가는 기능을 추가해야함
-		JButton BankCardbtn = new JButton("BankCard");
-		BankCardbtn.setBounds(120, 232, 117, 53);
+		RoundedButton BankCardbtn = new RoundedButton("BankCard");
+		BankCardbtn.setBounds(123, 199, 164, 219);
 		addCard.add(BankCardbtn);
 		BankCardbtn.addActionListener(new ActionListener() {
 			@Override
@@ -170,8 +170,8 @@ public class MainMenu {
 
 		});
 
-		JButton idCardbtn = new JButton("ID Card");
-		idCardbtn.setBounds(398, 232, 108, 53);
+		RoundedButton idCardbtn = new RoundedButton("ID Card");
+		idCardbtn.setBounds(413, 199, 164, 219);
 		addCard.add(idCardbtn);
 		idCardbtn.addActionListener(new ActionListener() {
 			@Override
@@ -189,8 +189,8 @@ public class MainMenu {
 
 		});
 
-		JButton traficCardbtn = new JButton("Trafic Card");
-		traficCardbtn.setBounds(629, 232, 108, 53);
+		RoundedButton traficCardbtn = new RoundedButton("Trafic Card");
+		traficCardbtn.setBounds(706, 199, 164, 219);
 		addCard.add(traficCardbtn);
 		traficCardbtn.addActionListener(new ActionListener() {
 			@Override
@@ -237,8 +237,8 @@ public class MainMenu {
 		useCardLabel.setBounds(435, 117, 96, 27);
 		useCard2.add(useCardLabel);
 
-		JButton UseBankBtn = new JButton("Bank Card");
-		UseBankBtn.setBounds(146, 261, 95, 23);
+		RoundedButton UseBankBtn = new RoundedButton("Bank Card");
+		UseBankBtn.setBounds(124, 199, 162, 219);
 		useCard2.add(UseBankBtn);
 		UseBankBtn.addActionListener(new ActionListener() { //Bank Use 선택
 			
@@ -248,8 +248,8 @@ public class MainMenu {
 			}
 		});
 
-		JButton useIDcardBtn = new JButton("ID Card");
-		useIDcardBtn.setBounds(431, 258, 95, 23);
+		RoundedButton useIDcardBtn = new RoundedButton("ID Card");
+		useIDcardBtn.setBounds(413, 199, 162, 219);
 		useCard2.add(useIDcardBtn);
 		useIDcardBtn.addActionListener(new ActionListener() { //Id Use 선택
 			
@@ -259,8 +259,8 @@ public class MainMenu {
 			}
 		});
 
-		JButton useTrafficbtn = new JButton("Traffic Card");
-		useTrafficbtn.setBounds(636, 254, 95, 23);
+		RoundedButton useTrafficbtn = new RoundedButton("Traffic Card");
+		useTrafficbtn.setBounds(702, 203, 168, 215);
 		useCard2.add(useTrafficbtn);
 		useTrafficbtn.addActionListener(new ActionListener() { // Use 선택
 			
