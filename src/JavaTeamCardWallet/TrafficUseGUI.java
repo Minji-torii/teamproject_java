@@ -23,6 +23,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextArea;
 
@@ -141,11 +143,16 @@ public class TrafficUseGUI {
 					e1.printStackTrace();
 				}
 				double Dbalance = Double.parseDouble(data[0][2]);
+				if(Dbalance < fee2) {
+					JOptionPane.showMessageDialog(null,"잔액부족","잔액부족", JOptionPane.ERROR_MESSAGE);
+				}
+				else {
 				Dbalance -= fee2;
 				
 				Tbalance = Double.toString(Dbalance);
 				System.out.println(Tbalance);
 				outputBalance.setText(Tbalance);
+				}
 
 				
 				
@@ -162,13 +169,16 @@ public class TrafficUseGUI {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}
+					
+				
 			}
 
 		});
 
 		// 교통카드사용 화면 -> 사용할 카드 선택하는 화면으로 넘어가야함
 		JButton backToUsecard = new AnotherRoundedButton("BACK");
-		backToUsecard.setBounds(0, 0, 111, 52);
+		backToUsecard.setFont(new Font("굴림",Font.PLAIN,14));
+		backToUsecard.setBounds(0, 0, 103, 38);
 		TrafficUse.add(backToUsecard);
 
 		
