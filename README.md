@@ -15,11 +15,11 @@
 -card : Save information on the card you are registering  
 -account : allows user to display card balance or expenditure  
 -BankCard : information of bank cards  
-- CheckCard : Bank card that can be used within user’s bank account balance  
-- CreditCard : Bank card that can be used within a limit based on user’s credit score  
+-CheckCard : Bank card that can be used within user’s bank account balance  
+-CreditCard : Bank card that can be used within a limit based on user’s credit score  
 -ID_card : A card that confirms the user’s identity  
-- Passport : ID card that proves the identity of a person who traveling abroad  
-- DriverLicense : ID card that proves user is eligible to drive  
+-Passport : ID card that proves the identity of a person who traveling abroad  
+-DriverLicense : ID card that proves user is eligible to drive  
 -Traffic_card : A card that allows user to use public transportation within the balance  
 
 
